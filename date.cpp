@@ -70,6 +70,9 @@ Date Date :: operator + (int days)
 
 bool Date :: operator > (Date date) const
 {
+    if(this->isEmpty() || date.isEmpty())
+    {
+        return false;
+    }
     
-}
 }
