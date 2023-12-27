@@ -16,8 +16,8 @@ class Storable: public Serializable
 
     public:
           
-          Storable (longrecordId) {this->recordId = recordId;};
-          long getRecordId() const {return this->recordId;};
+          Storable (longrecordId) { this->recordId = recordId; };
+          long getRecordId() const { return this->recordId; };
 
           virtual void setDataFrom (Storable * s) = 0;
 
