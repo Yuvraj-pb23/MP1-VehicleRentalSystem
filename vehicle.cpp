@@ -51,5 +51,29 @@ cout << "PUC Expiration Date : "    << this->PUCExpirationDate.toString() << end
 
 string Vehicle :: toString ( ) const
 {
-    
+    stringstream ss;
+    ss  << recordId << DELIMETER
+        << registrationNumber << DELIMETER
+        << type << DELIMETER
+        << seats << DELIMETER
+        << companyName << DELIMETER
+        << to_string (pricePerkm) << DELIMETER
+        << PUCExpirationDate.toString();
+
+    return ss.str();    
+}
+
+void Vehicle :: setDateFrom ( Storable * s)
+{
+    Vehicle * v = dynamic_cast<Vehicle*> ( s );
+
+    if ( v )
+    {
+        this->registrationNumber = v->registrationNumber;
+        this->type = v->type;
+        this->seats = v->seats;
+        this->companyName = v->companyName;
+        this->pricePerkm = v->pricePerkm;
+        this->PUCExpirationDate = v->PUCExpirationDate;
+    }
 }
