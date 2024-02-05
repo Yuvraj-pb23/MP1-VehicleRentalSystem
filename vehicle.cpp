@@ -22,6 +22,7 @@ Vehicle :: Vehicle(string registrationNumber, VehicleType type, int seats;
     double Vehicle :: getPricePerKm ( ) const {return this->pricePerkm;}
     Date Vehicle :: getPUCExpirationDate ( ) const {return this->PUCExpirationDate;}
     void Vehicle :: setPricePerKm (double newPrice) {this->pricePerkm = newPrice;}
+  
     string Vehicle :: getVehicleTypeName ( ) const
     {
         switch(this->type)
@@ -38,6 +39,17 @@ Vehicle :: Vehicle(string registrationNumber, VehicleType type, int seats;
     }
 
 void Vehicle :: display ( ) const
+{
+cout << "Vehicle Details : "        << endl;
+cout << "Registration no. : "       << this->registrationNumber << endl;
+cout << "Vehicle type : "           << this->getVehicleTypeName() <<endl;
+cout << "No of seats : "            << this->seats << endl;
+cout << "Company Name : "           << this->companyName << endl; 
+cout << "Price per km : "           << this->pricePerkm << "Rs/Km" << endl;
+cout << "PUC Expiration Date : "    << this->PUCExpirationDate.toString() << endl;
+}
+
+string Vehicle :: toString ( ) const
 {
     
 }
