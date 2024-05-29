@@ -1,8 +1,8 @@
-Major Project - 1.
+
+# Major Project - 1
+
 Vehicle Rental System.
-Reference: Object Orinted Programming with C++(E Balagurusamy) Book(8th Edition.
-
-
+Reference: Object Orinted Programming with C++(E Balagurusamy) Book(8th Edition).
 
 File name                                    Class/Struct Name                         Description
 
