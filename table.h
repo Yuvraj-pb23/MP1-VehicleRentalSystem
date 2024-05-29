@@ -9,7 +9,7 @@
 #include <fstream>
 
 using namespace std;
-template <class T> class Table {
+template <class T> class Table {}
     private:
 
       string fileName;
