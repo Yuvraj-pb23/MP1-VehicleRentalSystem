@@ -37,10 +37,6 @@ template <class T> const T * const Table<T> :: addNewRecord(T record) throw (Mem
     return newRecord;
 }
 
-template <class T> const T * const Table<T> :: addNewRecord (T record) throw (MemoryError,IOError) {
-    T * newRecord = new T (record);
-    if(!newRecord)
-    {
-        
-    }
-}
+template <class T> void Table<T> :: updateRecord (T updatedRecord) throw (IOError, NoSuchRecordError) {
+    
+}  
