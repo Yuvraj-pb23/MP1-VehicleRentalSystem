@@ -2,6 +2,7 @@
 #define database_cpp
 #include"database.h"
 #include"string_helper.h"
+#include"string_helper.cpp"
 #include<iostream>
 
 using namespace std;
