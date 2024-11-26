@@ -25,7 +25,7 @@ template <class T> class Table {
       Table (string fileName) throw (MemoryError);
       -Table ();
 
-      long get NextRecordId() const;
+      long getNextRecordId() const;
 
       const T* const getRecordForId (long recordId) const throw (NoSuchRecordError);
       friend class Database;    

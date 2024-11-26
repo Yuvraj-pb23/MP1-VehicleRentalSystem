@@ -12,8 +12,8 @@ template <class T> Table<T> :: Table (string fileName) throw (MemoryError) {
     }
 }
 
-template <class T> long Table<T> :: getNextRecordId() const {
-    return this -> records -> size() + 1;
+template <class T> long Table<T> :: getNextRecordId( ) const{
+return this->records->size() + 1;
 }
 
 
@@ -30,7 +30,7 @@ template <class T> const T * const Table<T> :: addNewRecord(T record) throw (Mem
     try{
         this->writeTofile();
     }
-    catch (IOError erroe){
+    catch (IOError error){
         this->records->pop_back();
         delete newRecord;
         throw;
@@ -90,7 +90,7 @@ template<class T> T* Table<T> ::getReferenceOfRecordForId(long recordId) const t
     throw NoSuchRecordError();
 }
 
-template<classT> Table<T> :: ~Table(  ){
+template <class T> Table<T> :: ~Table(  ) {
     for (auto& record : *this->records) {
         delete dynamic_cast<T*> (record);
     }

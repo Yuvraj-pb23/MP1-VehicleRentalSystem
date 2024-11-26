@@ -20,7 +20,7 @@ class User : public Storable
 
     string getName ( ) const;
     string getContact ( ) const;
-    string gerEmail ( ) const;
+    string getEmail ( ) const;
 
     void setName (string newName);
     void setContact (string newContact);

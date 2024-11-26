@@ -22,7 +22,7 @@ class Trip : public Storable
     long startReading;
     long endReading;
 
-    dauble fare;
+    double fare;
     bool completed;
 
     public:
@@ -44,7 +44,7 @@ class Trip : public Storable
 
     void display ( ) const;
     string toString ( ) const;
-    void setDateFrom (Storable * s);
+    void setDataFrom (Storable * s);
   
 };
 

@@ -3,7 +3,7 @@
 
 const char DELIMITER = ';' ;
 
-Vehicle :: Vehicle(string registrationNumber, VehicleType type, int seats;
+Vehicle :: Vehicle (string registrationNumber, VehicleType type, int seats,
      string companyName, double pricePerkm, Date PUCExpirationDate,
     long recordId) : Storable (recordId)
     {
@@ -52,18 +52,18 @@ cout << "PUC Expiration Date : "    << this->PUCExpirationDate.toString() << end
 string Vehicle :: toString ( ) const
 {
     stringstream ss;
-    ss  << recordId << DELIMETER
-        << registrationNumber << DELIMETER
-        << type << DELIMETER
-        << seats << DELIMETER
-        << companyName << DELIMETER
-        << to_string (pricePerkm) << DELIMETER
+    ss  << recordId << DELIMITER
+        << registrationNumber << DELIMITER
+        << type << DELIMITER
+        << seats << DELIMITER
+        << companyName << DELIMITER
+        << to_string (pricePerkm) << DELIMITER
         << PUCExpirationDate.toString();
 
     return ss.str();    
 }
 
-void Vehicle :: setDateFrom ( Storable * s)
+void Vehicle :: setDataFrom ( Storable * s)
 {
     Vehicle * v = dynamic_cast<Vehicle*> ( s );
 

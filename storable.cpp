@@ -16,12 +16,12 @@ class Storable: public Serializable
 
     public:
           
-          Storable (longrecordId) { this->recordId = recordId; };
+          Storable (long recordId) { this->recordId = recordId; };
           long getRecordId() const { return this->recordId; };
 
           virtual void setDataFrom (Storable * s) = 0;
 
           template<class T> friend class Table;
           friend class Database;
-}
+};
 #endif

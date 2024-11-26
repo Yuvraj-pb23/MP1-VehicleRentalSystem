@@ -7,7 +7,7 @@
 
 using namespace std;
 
-typedf enum {bike = 1,car = 2,towera = 3} VehicleType;
+typedef enum {bike = 1,car = 2,towera = 3} VehicleType;
 
 class Vehicle : public Storable
 {
@@ -26,7 +26,7 @@ private:
 
 public:
     
-    Vehicle(string registrationNumber, VehicleType type, int seats;
+    Vehicle(string registrationNumber, VehicleType type, int seats,
      string companyName, double pricePerkm, Date PUCExpirationDate,
       long recordId = 0);
 

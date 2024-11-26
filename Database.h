@@ -26,7 +26,7 @@ public:
 
 	Database() throw (MemoryError, IOError);
 
-	-Database();
+	~Database();
 
 	const Table<Vehicle>* const getVehicleRef() const;
 	const Table<User>* const getUserRef() const;
@@ -34,12 +34,11 @@ public:
 
 	const Vehicle* const getVehicle(string regestrationNo) const throw (NoSuchRecordError);
 	const User* const getUser(string ContactNo) const throw (NoSuchRecordError);
-	const vector<const Vehicle*> getVehicle(Date startDate, Date endDate VehicleType type) const;
+	const vector<const Vehicle *> getVehicle(Date startDate, Date endDate, VehicleType type) const;
 
 	template <class T> void addNewRecord(T* record) throw (IOError, MemoryError);
 	template <class T> void UpdateRecord(T* record) throw (IOError, NoSuchRecordError);
 };
-
 #endif
 
 

@@ -3,7 +3,7 @@
 
 const char DELIMITER = '/';
 
-Date :: date( )
+Date :: Date( )
 {
     time_t now = time(NULL);
     this->empty = false;
@@ -20,7 +20,7 @@ Date :: Date (string date)
     
     this->empty = false;
 
-    vector<string> dateComponents = split(date,DELIMITER);
+    vector<string> dateComponents = split(date, DELIMITER);
     int day = stoi(dateComponents[0]);
     int month = stoi(dateComponents[1]);
     int year = stoi(dateComponents[2]);
@@ -75,7 +75,7 @@ bool Date :: operator > (Date date) const
         return false;
     }
     int yearDiff = this->date.tm_year - date.date.tm_year;
-    int monthDiff = this->date.tm_month - date.date.tm_month;
+    int monthDiff = this->date.tm_mon - date.date.tm_mon;
     int dayDiff = this->date.tm_mday - date.date.tm_mday;
 
     if(yearDiff != 0)
@@ -107,7 +107,7 @@ bool Date :: operator < (Date date) const
     }
 
     int yearDiff = this->date.tm_year - date.date.tm_year;
-    int monthDiff = this->date.tm_month - date.date.tm_month;
+    int monthDiff = this->date.tm_mon - date.date.tm_mon;
     int dayDiff = this->date.tm_mday - date.date.tm_mday;   
 
     if(yearDiff != 0)

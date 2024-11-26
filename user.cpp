@@ -6,16 +6,16 @@
 const char DELIMETER = ';';
 
 User :: User (string name, string contact, string email, long recordId) :
-Storable(recordId)
+Storable (recordId)
 {
-    this->>name = name;
-    this->>contact = contact;
-    this->>email = email;
+    this->name = name;
+    this->contact = contact;
+    this->email = email;
 }
 
-string User :: getName ( ) const { return this->name;}
-string User :: getContact ( ) const { return this->contact;}
-string User :: getEmail ( ) const { return this->email;}
+string User :: getName ( ) const {return this->name;}
+string User :: getContact ( ) const {return this->contact;}
+string User :: getEmail ( ) const {return this->email;}
 
 void User :: setName ( string newName) {this->name = newName;}
 void User :: setContact ( string newContact) {this->contact = newContact;}
@@ -28,7 +28,7 @@ void User :: display ( ) const
   cout << "Email id : "   <<this->email <<endl;
 } 
 
-string Vehicle :: toString ( ) const
+string User :: toString ( ) const
 {
     stringstream ss;
     ss  << recordId << DELIMETER
@@ -47,9 +47,9 @@ void User :: setDataFrom (Storable * s)
 
      if (user)
      {
-        this->>name = user->name;
-        this->>contact = user->contact;
-        this->>email = user->email;
+        this->name = user->name;
+        this->contact = user->contact;
+        this->email = user->email;
 
      }
 }

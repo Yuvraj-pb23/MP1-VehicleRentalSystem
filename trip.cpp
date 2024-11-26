@@ -15,7 +15,7 @@ Trip :: Trip (const Vehicle * vehicle, const User * user, Date startDate, Date e
         this->startReading = startReading;
         this->endReading = endReading;
         this->fare = fare;
-        this->isCompeted = isCompeted;
+        this->completed = isCompeted;
     }
 
     const User & Trip :: getUser() const{return *this->user;}
@@ -32,7 +32,7 @@ Trip :: Trip (const Vehicle * vehicle, const User * user, Date startDate, Date e
     this->startReading = startReading;
   }
 
-  double trip :: completeTrip (long endReading)
+  double Trip :: completeTrip (long endReading)
   {
     if (this->completed)
     {
@@ -63,7 +63,7 @@ Trip :: Trip (const Vehicle * vehicle, const User * user, Date startDate, Date e
     cout << endl;
 
     cout << "Trip Details : "       <<endl;
-    cout << "Start date : "         <<this->user->startDate.toString() <<endl;
+    cout << "Start date : "         <<this->startDate.toString() <<endl;
     cout << "End date : "           <<this->endDate.toString() <<endl;
 
     string tripStatus = "Not started";
@@ -85,7 +85,7 @@ Trip :: Trip (const Vehicle * vehicle, const User * user, Date startDate, Date e
     cout << "Trip status : "        <<tripStatus <<endl;
  }
 
- start Trip :: toString()  const
+ string Trip :: toString()  const
  {
     stringstream ss;
     ss << recordId << DELIMETER
@@ -101,9 +101,9 @@ Trip :: Trip (const Vehicle * vehicle, const User * user, Date startDate, Date e
     return ss.str();   
  }
 
- void Trip :: set DataFrom (Storable * s)
+ void Trip :: setDataFrom (Storable * s)
  {
-    Trip * t = Static_cast<Trip*> ( s );
+    Trip * t = static_cast<Trip*> ( s );
 
     if ( t )
     {
@@ -111,7 +111,7 @@ Trip :: Trip (const Vehicle * vehicle, const User * user, Date startDate, Date e
         this->user = t->user;
         this->startDate = t->startDate;
         this->endDate = t->endDate;
-        this->startReading = t->startDate;
+        this->startReading = t->startReading;
         this->endReading = t->endReading;
         this->fare = t->fare;
         this->completed = t->completed;

@@ -34,16 +34,17 @@ void Database::fetchAllVehicles() throw (IOError, MemoryError)
 	}
 	for (string line; getline(this->vehicleTable->fileStream, line);)
 	{
-		vector<string> components = split(line, DELIMETER);
+		vector<string> components = split ( line, DELIMETER );
 		auto recordId                   = stol(components[0]);
-		auto regestrationNumber         = components[1];
-		auto type                       = VehicleType(stol(components[2]));
+		auto registrationNumber         = components[1];
+		auto type                       = VehicleType(stoi(components[2]));
 		auto seats                      = stoi(components[4]);
 		auto companyName                = components[4];
 		auto pricePerKm                 = stod(components[5]);
 		auto PUCExpirationDate          = Date(components[6]);
-		
 
+		Storable*record = new Vehicle (registrationNumber, type, seats, companyName, pricePerKm, PUCExpirationDate, recordId);
 
 	}
 }
+#endif
