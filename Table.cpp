@@ -3,7 +3,8 @@
 
 using namespace std;
 
-template <class T> Table<T> :: Table (string fileName) throw (MemoryError) {
+template <class T> Table<T> :: Table (string fileName) throw (MemoryError) 
+{
     this->filename = fileName;
     this->records = new vector<Storable *>();
 
@@ -12,12 +13,14 @@ template <class T> Table<T> :: Table (string fileName) throw (MemoryError) {
     }
 }
 
-template <class T> long Table<T> :: getNextRecordId( ) const{
+template <class T> long Table<T> :: getNextRecordId( ) const
+{
 return this->records->size() + 1;
 }
 
 
-template <class T> const T * const Table<T> :: addNewRecord(T record) throw (MemoryError,IOError) {
+template <class T> const T * const Table<T> :: addNewRecord(T record) throw (MemoryError,IOError) 
+{
 
     T * newRecord = new T(record);
     if (!newRecord) {
@@ -38,7 +41,8 @@ template <class T> const T * const Table<T> :: addNewRecord(T record) throw (Mem
     return newRecord;
 }
 
-template <class T> void Table<T> :: updateRecord (T updatedRecord) throw (IOError, NoSuchRecordError) {
+template <class T> void Table<T> :: updateRecord (T updatedRecord) throw (IOError, NoSuchRecordError) 
+{
     for (auto & record : *this->records) {
         if (record->getRecordId() == updatedRecord.getRecordId()) {
             T* pointerToRecord = dynamic_cast<T*> (record);
@@ -59,7 +63,8 @@ template <class T> void Table<T> :: updateRecord (T updatedRecord) throw (IOErro
     throw NoSuchRecordError();
 }  
 
-template <class T> void Table<T> ::writeTofile() throw (IOError) {
+template <class T> void Table<T> ::writeTofile() throw (IOError) 
+{
     this->fileStream.open(fileName, ios::out | ios::trunc);
     if (!this->fileStream)
     {
@@ -72,7 +77,8 @@ template <class T> void Table<T> ::writeTofile() throw (IOError) {
 }
 
 
-template <class T> const T* const Table<T> ::getRecordForId(long recordId) const throw (NoSuchRecordError) {
+template <class T> const T* const Table<T> ::getRecordForId(long recordId) const throw (NoSuchRecordError) 
+{
     try {
         return this->getReferenceOfRecordForId(recordId);
     }
@@ -81,7 +87,8 @@ template <class T> const T* const Table<T> ::getRecordForId(long recordId) const
     }
 }
 
-template<class T> T* Table<T> ::getReferenceOfRecordForId(long recordId) const throw (NoSuchRecordError) {
+template<class T> T* Table<T> ::getReferenceOfRecordForId(long recordId) const throw (NoSuchRecordError) 
+{
     for (auto& record : *records) {
         if (record->getRecordId() == recordId) {
             return dynamic_cast<T*> *(record);
@@ -90,7 +97,8 @@ template<class T> T* Table<T> ::getReferenceOfRecordForId(long recordId) const t
     throw NoSuchRecordError();
 }
 
-template <class T> Table<T> :: ~Table(  ) {
+template<class T> Table<T> :: ~Table (  )
+{
     for (auto& record : *this->records) {
         delete dynamic_cast<T*> (record);
     }

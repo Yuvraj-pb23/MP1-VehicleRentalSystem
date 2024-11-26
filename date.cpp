@@ -3,7 +3,7 @@
 
 const char DELIMITER = '/';
 
-Date :: Date( )
+Date :: Date ( )
 {
     time_t now = time(NULL);
     this->empty = false;

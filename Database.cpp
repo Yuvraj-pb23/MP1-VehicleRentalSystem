@@ -34,7 +34,7 @@ void Database::fetchAllVehicles() throw (IOError, MemoryError)
 	}
 	for (string line; getline(this->vehicleTable->fileStream, line);)
 	{
-		vector<string> components = split ( line, DELIMETER );
+		vector<string> components = split(line, DELIMETER);
 		auto recordId                   = stol(components[0]);
 		auto registrationNumber         = components[1];
 		auto type                       = VehicleType(stoi(components[2]));

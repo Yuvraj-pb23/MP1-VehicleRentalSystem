@@ -9,7 +9,8 @@
 
 using namespace std;
 
-class Database {
+class Database 
+{
 
 private:
 	Table<Vehicle>* vehicleTable;

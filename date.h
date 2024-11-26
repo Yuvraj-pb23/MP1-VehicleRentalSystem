@@ -5,7 +5,6 @@
 #include<string>
 
 using namespace std;
-
 typedef struct Date : Serializable
 {
     private:
@@ -25,6 +24,7 @@ bool operator <= (Date date) const;
 
 bool isEmpty ( )  const;
 string toString ( ) const;
-} Date;
+}
+Date;
 
 #endif

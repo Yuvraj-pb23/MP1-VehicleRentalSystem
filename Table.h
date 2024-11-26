@@ -23,7 +23,7 @@ template <class T> class Table {
 
     public:
       Table (string fileName) throw (MemoryError);
-      -Table ();
+      ~Table ();
 
       long getNextRecordId() const;
 
