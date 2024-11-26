@@ -19,7 +19,6 @@ Date :: Date (string date)
     }
     
     this->empty = false;
-
     vector<string> dateComponents = split(date, DELIMITER);
     int day = stoi(dateComponents[0]);
     int month = stoi(dateComponents[1]);
