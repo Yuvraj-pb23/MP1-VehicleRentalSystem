@@ -1,6 +1,6 @@
 #ifndef database_cpp
 #define database_cpp
-#include"database.h"
+#include"Database.h"
 #include"string_helper.h"
 #include"string_helper.cpp"
 #include<iostream>
@@ -64,8 +64,24 @@ void Database::fetchAllUsers() throw (IOError, MemoryError)
 	   for(string line; getline(this->userTable->fileStream, line);)
 	   {
 		vector<string> components = split(line, DELIMETER);
+        auto recordId   =  stoi(components[0]);
+        auto name       =  components[1];
+        auto contact    =  components[2];
+        auto email      =  components[3];
 
+		Storable * record = new User(name, contact, email, recordId);
+		if(!record)
+		{
+			throw MemoryError();
+		}
+		this->userTable->records->push_back(record);
 	   }
+	   this->userTable->fileStream.close();
+}
+
+void Database :: fetchAllTrips() throw(IOError,MemoryError)
+{
+
 }
 
 #endif
