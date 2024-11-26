@@ -7,7 +7,7 @@
 
 using namespace std;
 
-const char DELIMITER = ';';
+const char DELIMETER = ';';
 Database::Database() throw (IOError, MemoryError) 
 {
 	try 
@@ -35,7 +35,7 @@ void Database::fetchAllVehicles() throw (IOError, MemoryError)
 	}
 	for (string line; getline (this->vehicleTable->fileStream, line); )
 	{
-		vector<string> components = split(line, DELIMITER);
+		vector<string> components = split(line, DELIMETER);
 		auto recordId                   = stol(components[0]);
 		auto registrationNumber         = components[1];
 		auto type                       = VehicleType(stoi(components[2]));
@@ -63,7 +63,7 @@ void Database::fetchAllUsers() throw (IOError, MemoryError)
 
 	   for(string line; getline(this->userTable->fileStream, line);)
 	   {
-		vector<string> components = split(line, DELIMITER);
+		vector<string> components = split(line, DELIMETER);
 
 	   }
 }
