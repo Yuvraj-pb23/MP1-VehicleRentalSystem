@@ -145,7 +145,56 @@ const User*const Database :: getUser(string contactNo)const throw(NoSuchRecordEr
 	}
 	throw NoSuchRecordError();
 }
+ 
+ const vector<const Vehicle*> Database :: getVehicle (Date startDate, Date endDate, VehicleType type) const
+ {
+   vector<const Vehicle *> vehicles = vector<const Vehicle*>();
+   for(auto & vrecord : *this->vehicleTable->records)
+   {
+	Vehicle * vehicle = dynamic_cast<Vehicle*> (vrecord);
+	if(vehicle && vehicle->getVehicleType()== type)
+	{
+		bool tripFound =false;
+		for(auto & trecord : *this->tripTable->records)
+		{
+			Trip * trip = dynamic_cast<Trip*> (trecord);
+			if(
+				trip &&
+				!trip->isCompeted()&&
+				trip->getVehicle().getRecordId()== vehicle->getRecordId()&&
+				!(trip->getStartDate() >= endDate && trip->getEndDate() >= endDate) &&
+				!(trip->getStartDate() <= startDate && trip->getEndDate()<= startDate)
+			){
+				tripFound = true;
+				break;
+			}
+		}
+		if(!tripFound){
+			vehicles.push_back(vehicle);
+		}
+	}
+   }
+   return vehicles;
+ }
 
+ void Database :: cleanUp( ){
+	delete this->vehicleTable;
+	delete this->userTable;
+	delete this->tripTable;
+ }
+ Database :: ~Database(){
+	this->cleanUp();
+ }
+
+ const Table<Vehicle> * const Database :: getVehicleRef( ) const{
+	return this->vehicleTable;
+ }
+ const Table<User> * const Database :: getUserRef( ) const{
+	return this->userTable;
+ }
+ const Table<Trip> * const Database :: getTripRef( ) const{
+	return this->tripTable;
+ }
 
 
 #endif
