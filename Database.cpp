@@ -81,7 +81,71 @@ void Database::fetchAllUsers() throw (IOError, MemoryError)
 
 void Database :: fetchAllTrips() throw(IOError,MemoryError)
 {
-
+	this->tripTable->fileStream.open(this->tripTable->fileName);
+	if(!this->tripTable->fileStream)
+	{
+		throw IOError();
+	}
+	for(string line; getline(this->tripTable->fileStream,line);)
+	{
+        vector<string> components=split(line,DELIMETER);
+		
+		try
+		{
+           auto recordId      = stoi(components[0]);
+           auto vehiclePtr    = this->vehicleTable->getReferenceOfRecordForId (stoi(components[1]));
+           auto userPtr       = this->userTable->getReferenceOfRecordForId(stoi(components[2]));
+           auto startDate     = Date (components[3]);
+           auto endDate       = Date (components[4]);
+           auto startReading  = stol (components[5]);
+           auto endReading    = stol (components[6]);
+           auto fare          = stod (components[7]);
+           auto isCompleted   = (components[8] == "0" ? false : true;);
+           
+		   Storable * record = new Trip (vehiclePtr, userPtr, startDate, endDate, recordId, startReading, endReading, fare, isCompleted);
+		   if(!record)
+		   {
+			throw MemoryError();
+		   }
+		   this->tripTable->records->push_back(record);
+		}catch(...){
+			//just ignore this error
+		}
+	}
+	this->tripTable->fileStream.close();
 }
+
+const Vehicle * const Database :: getVehicle(string registrationNo) const throw(NoSuchRecordError)
+{
+	for(auto&record : *this->vehicleTable->records)
+	{
+		Vehicle*vehicle = dynamic_cast<Vehicle*> (record);
+		if(vehicle){
+			if(vehicle->getRegistrationNumber()==registrationNo)
+			{
+				return vehicle;
+			}
+		}
+	}
+	throw NoSuchRecordError();
+} 
+
+const User*const Database :: getUser(string contactNo)const throw(NoSuchRecordError)
+{
+	for(auto & record : *this->userTable->records)
+	{
+       User * user=dynamic_cast<User*>(record);
+	   if(user)
+	   {
+		if(user->getContact()== contactNo)
+		{
+			return user;
+		}
+	   }
+	}
+	throw NoSuchRecordError();
+}
+
+
 
 #endif
