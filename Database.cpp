@@ -100,7 +100,7 @@ void Database :: fetchAllTrips() throw(IOError,MemoryError)
            auto startReading  = stol (components[5]);
            auto endReading    = stol (components[6]);
            auto fare          = stod (components[7]);
-           auto isCompleted   = (components[8] == "0" ? false : true;);
+           auto isCompleted   = components[8] == "0" ? false : true;
            
 		   Storable * record = new Trip (vehiclePtr, userPtr, startDate, endDate, recordId, startReading, endReading, fare, isCompleted);
 		   if(!record)
