@@ -97,5 +97,68 @@ void Application::renderMenu()
 
 void Application :: renderAddNewVehicleMenu( ) const
 {
+  string header = "Enter details of vehicles(All fields are required)";
+  string registrationNolabel = "Enter vehicle registration number : ";
+  string vehicleTypeLabel = "Enter vehicle type :   ";
+  string vehicleOptionLabel = "(1. Bike, 2. Car, 3. Towera)";
+  string seatLabel = "Enter no. of seats : ";
+  string companyNameLabel = "Enter name of company: ";
+  string priceLabel = "Enter price per km: ";
+  string pucExpirationDateLabel = "Enter PUC expiration date (d/m/yyyy):";
+
+  string registrationNo;
+  int vehicleType;
+  int seat;
+  string companyName;
+  double price;
+  string pucExpirationDate;
+
+  system("clear");
+
+  gotoXY(0, 1);
+  cout<<header;
+  gotoXY(0, 3);
+  cout<<registrationNolabel;
+  gotoXY(0, 4);
+  cout<<vehicleOptionLabel;
+  gotoXY(0, 5);
+  cout<<vehicleOptionLabel;
+  gotoXY(0, 6);
+  cout<<seatLabel;
+  gotoXY(0, 7);
+  cout<<companyNameLabel;
+  gotoXY(0, 8);
+  cout<<priceLabel;
+  gotoXY(0, 9);
+  cout<<pucExpirationDateLabel;
+
+
+  gotoXY(int(registrationNolabel.length()), 3);
+  getline(cin,registrationNo);
+
+  gotoXY(int(vehicleTypeLabel.length()),4);
+  cin >> vehicleType;
+  cin.ignore(numeric_limits<streamsize>::max(),'\n');
+
+  gotoXY(int(seatLabel.length()),6);
+  cin >> seat;
+  cin.ignore(numeric_limits<streamsize>::max(),'\n');
   
+  gotoXY(int(companyNameLabel.length()),7);
+  getline(cin, companyName);
+
+  gotoXY(int(priceLabel.length()),8);
+  cin >> price;
+  cin.ignore(numeric_limits<streamsize>::max(),'\n');
+  
+  gotoXY(int(pucExpirationDateLabel.length()),9);
+  getline(cin, pucExpirationDate);
+
+  Vehicle *vehicle;
+  try
+  {
+    
+  }
+  
+
 }
