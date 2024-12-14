@@ -1,13 +1,13 @@
 #include "string_helper.h"
 
-vector<string> split(const string & s, char DELIMITER)
+vector<string> split (const string & s, char delimiter)
 {
 
   vector<string> tokens;
   string token;
-  istringstream tokenstream ( s );
+  istringstream tokenStream ( s );
 
-  while (getline(tokenstream, token, DELIMITER))
+  while (getline(tokenStream, token, delimiter))
   {
     tokens.push_back (token);
   }

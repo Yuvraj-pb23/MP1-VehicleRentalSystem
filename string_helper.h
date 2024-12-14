@@ -8,4 +8,6 @@
 
 using namespace std;
 
+extern vector<std::string> split(const string & s, char delimiter);
+
 #endif

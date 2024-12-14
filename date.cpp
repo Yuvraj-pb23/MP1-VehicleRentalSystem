@@ -1,7 +1,5 @@
 #include"date.h"
 #include"string_helper.h"
-#include"string_helper.cpp"
-
 
 const char DELIMITER = '/';
 

@@ -5,7 +5,7 @@ using namespace std;
 
 template <class T> Table<T> :: Table (string fileName) throw (MemoryError) 
 {
-    this->filename = fileName;
+    this->fileName = fileName;
     this->records = new vector<Storable *>();
 
     if (!this->records) {
