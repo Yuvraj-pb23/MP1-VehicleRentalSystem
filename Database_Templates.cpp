@@ -16,7 +16,7 @@ template <class T> void Database :: addNewRecord (T *record) throw(IOError,Memor
         }
         Trip *t =dynamic_cast<Trip *> (record);
         if(t){
-            auto savedRecord = this-> tripTable->addNewRecord(*);t
+            auto savedRecord = this-> tripTable->addNewRecord(*t);
             record->recordId = savedRecord->recordId;
             return;
         }

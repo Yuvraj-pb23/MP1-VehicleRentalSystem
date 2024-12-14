@@ -3,6 +3,8 @@
 #include<iostream>
 #include<cstdio>
 #include<cstdlib>
+#include<limits>
+#include<iomanip>
 
 Application :: Application()
 {
@@ -494,7 +496,7 @@ void Application :: renderAddNewTripMenu( ) const
             auto fare = modifiedTrip->completeTrip(endReading);
             stringstream ss;
             ss<<"Total Fare : "<<fare;
-            showDialogue("Trip completed successfully"; ss.str());
+            showDialogue("Trip completed successfully", ss.str());
         }
         catch(Error e){
             this->showDialogue(e.getMessage());
