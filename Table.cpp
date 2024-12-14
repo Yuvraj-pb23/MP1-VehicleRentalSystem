@@ -91,7 +91,7 @@ template<class T> T* Table<T> ::getReferenceOfRecordForId(long recordId) const t
 {
     for (auto& record : *records) {
         if (record->getRecordId() == recordId) {
-            return dynamic_cast<T*> *(record);
+            return dynamic_cast<T*> (record);
         }
     }
     throw NoSuchRecordError();
